@@ -104,22 +104,23 @@ function strings(){
 
 document.getElementsByClassName('textField')[0].onkeyup = strings
 
-userInput.value = `Two households, both alike in dignity,
-In fair Verona, where we lay our scene,
-From ancient grudge break to new mutiny,
-Where civil blood makes civil hands unclean.
-From forth the fatal loins of these two foes
-A pair of star-cross'd lovers take their life;
-Whose misadventur'd piteous overthrows
-Doth with their death bury their parents' strife.
-The fearful passage of their death-mark'd love,
-And the continuance of their parents' rage,
-Which, but their children's end, naught could remove,
-Is now the two hours' traffic of our stage;
-The which if you with patient ears attend,
-What here shall miss, our toil shall strive to mend.`;
-strings();
-// 	document.getElementsByClassName('textField')[1].value =
-// 	document.getElementsByClassName('textField')[0].value.split();
-// }
+function emojiTranslate(emojiToTranslate){
+	// https://stackoverflow.com/questions/29883892/other-ways-to-remove-or-ignore-punctuation-in-js-besides-regex
+	let wordWithoutPunction = emojiToTranslate;
+	let translation=dictionary.filter(words => {
+		return (words.emoji == wordWithoutPunction)
+	});
+	if(translation.length == 0) {
+		return emojiToTranslate;
+	}
+	return emojiToTranslate.replace(wordWithoutPunction, translation[0].word);
+}
+
+function stringsEmoji(){
+	let split=output.value.split(" ");
+	let result = split.map(emojiTranslate);
+	userInput.value = result.join(" ");
+}
+
+document.getElementsByClassName('textField')[1].onkeyup = stringsEmoji;
 
