@@ -4,7 +4,7 @@
 }
 
 h1 {
-	font-family: tilda-grande, sans-serif;
+	font-family: 'Grenze Gotisch', cursive;
 	font-weight: 400;
 	font-style: normal; 
 	font-size: 50px;
@@ -14,6 +14,19 @@ h1 {
 }
 
 textarea {
-	font-size: 12px;
-	font-family: sans-serif;
+	font-size: 16px;
+	font-family: Helvetica, sans-serif;
+	max-width: 42vw;
+	max-height: 40vh;
+	resize: none;
+	border-radius: 5px;
+	padding: 1%;
+}
+
+#left {
+	margin-right: 0.5%;
+}
+
+#right {
+	margin-left: 0.5%;
 }
